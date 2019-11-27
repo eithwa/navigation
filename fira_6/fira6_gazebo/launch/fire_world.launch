@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <!--arg name="world_name" default="$(find febot_gazebo)/worlds/no_obstracle_field.world"/-->
+  <arg name="world_name" default="$(find fira6_gazebo)/worlds/fire_map.world"/>
+
+  <arg name="laser_enabled" default="true"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
+    <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <include file="$(find fira6_gazebo)/launch/spawn_febot.launch"/>
+</launch>

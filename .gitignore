@@ -1,0 +1,9 @@
+.catkin_workspace
+.robot_ns
+
+__pycache__
+*.pyc
+.vscode
+CATKIN_IGNORE
+*~
+

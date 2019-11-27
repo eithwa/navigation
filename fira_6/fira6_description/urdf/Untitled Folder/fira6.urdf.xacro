@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<robot name="fira6" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find fira6_description)/urdf/fira6.gazebo.xacro"/>
+
+  <!-- root link, on the ground just below the model origin -->
+  <link name="base_footprint">
+   <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+  <joint name="world_joint" type="fixed">
+    <origin xyz="0.0 0 0" rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="scanner_base"/>
+  </joint>
+
+  <!-- the model -->
+  <link name="scanner_base">
+    <inertial>
+      <mass value="50" />
+      <origin xyz="0 0.04 -0.48" />
+      <inertia ixx="12.75" ixy="0.0"   ixz="0.0"
+                           iyy="12.75" iyz="0.0"
+                                       izz="1.3225" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0.04 -0.68" rpy="0 0 1.57" />
+      <!--origin xyz="0 0 -1.62" rpy="0 0 1.57" /-->
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <geometry>
+        <mesh filename="package://fira6_description/meshes/robot6th.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder length="0.6" radius="0.23" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="hokuyo_joint1" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0.025 0 0.35" rpy="0 0 0"/>
+    <parent link="scanner_base"/>
+    <child link="front_scanner"/>
+  </joint>
+
+  <!-- Hokuyo Laser 1 -->
+  <link name="front_scanner">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://fira6_description/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="hokuyo_joint2" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="-0.025 0 0.35" rpy="0 0 3.14"/>
+    <parent link="scanner_base"/>
+    <child link="rear_scanner"/>
+  </joint>
+
+  <!-- Hokuyo Laser 2 -->
+  <link name="rear_scanner">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://fira6_description/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+</robot>
