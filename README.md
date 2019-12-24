@@ -38,7 +38,16 @@
 ## 軟硬體安裝
 ### 編譯
 * 編譯前先把hokuyo_node拿出來catkin_make,完成後再放入編譯一次
-
+* 確定這些package都有安裝
+```bash
+$ sudo apt-get install ros-indigo-hector-map-tools
+$ sudo apt-get install ros-indigo-hector-nav-msgs
+$ sudo apt-get install ros-indigo-dynamixel-controllers
+$ sudo apt-get install ros-indigo-move-base-msgs
+$ sudo apt-get install ros-indigo-move-base
+$ sudo apt-get install ros-indigo-dwa-local-planner
+$ sudo apt-get install octovis (3d 地圖)
+```
 ### Hokuyo URG-04LX
 * indigo：
 ```bash

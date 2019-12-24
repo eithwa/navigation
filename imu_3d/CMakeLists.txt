@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(imu_3d)
-
+set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -g -ftest-coverage -fprofile-arcs")
 set (PROJECT_VERSION_MAJOR 0)
 set (PROJECT_VERSION_MINOR 7)
 set (PROJECT_VERSION_PATCH 0)
@@ -57,10 +57,21 @@ set(APP_CTRL_SRCS src/appControlHandler.c src/appControlHandler.h)
 set(MATH_SRCS src/math/quaternion.c src/math/quaternion.h src/math/vec3.h)
 
 ## Declare a cpp executable
- add_executable(imu_3d src/imu_3d.cpp ${APP_CTRL_SRCS} ${MATH_SRCS})
- add_dependencies(imu_3d imu_3d_gencpp)
+# imu_3d
+add_executable(imu_3d src/imu_3d.cpp ${APP_CTRL_SRCS} ${MATH_SRCS})
+add_dependencies(imu_3d imu_3d_gencpp)
 
- target_link_libraries(imu_3d
+target_link_libraries(imu_3d
+    ${catkin_LIBRARIES}
+    ${pthread_lib_name}
+    ${LIBFREESPACE_LIBRARIES}
+)
+
+# fsm_9
+add_executable(fsm_imu_node src/fsm_imu_node.cpp ${APP_CTRL_SRCS} ${MATH_SRCS})
+ add_dependencies(fsm_imu_node fsm_imu_node_gencpp)
+
+ target_link_libraries(fsm_imu_node
    ${catkin_LIBRARIES}
    ${pthread_lib_name}
    ${LIBFREESPACE_LIBRARIES}
