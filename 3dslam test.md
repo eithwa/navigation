@@ -22,7 +22,7 @@ $ rosbag play test.bag --topic /velodyne_points
     gen.add("fixed_frame", str_t, 0, "The desired input frame", "laser")
     gen.add("target_frame", str_t, 0, "The desired output frame", "laser")
     ```
-* 改變velodyne UDP package
+* 改變velodyne UDP package  
 93行確定為754
 ```bash
   else if (config_.model == "VLP16")
@@ -31,7 +31,7 @@ $ rosbag play test.bag --topic /velodyne_points
       model_full_name = "VLP-16";
     }
 ```
-   * 若使用cartographer可以改為1
+   * 若使用cartographer可以改為packet_rate = 1;
       * lua參數TRAJECTORY_BUILDER_3D.num_accumulated_range_data改為100  
 
 ```bash
