@@ -84,7 +84,8 @@
   </gazebo>
   <xacro:if value="$(arg odom)">
     <gazebo>
-      <plugin name="object_controller" filename="libgazebo_ros_planar_move_fix.so">
+      <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <!--plugin name="object_controller" filename="libgazebo_ros_planar_move_fix.so"-->
         <commandTopic>/cmd_vel</commandTopic>
         <odometryTopic>odom</odometryTopic>
         <odometryFrame>odom</odometryFrame>
@@ -95,7 +96,8 @@
   </xacro:if>
   <xacro:unless value="$(arg odom)">
     <gazebo>
-      <plugin name="object_controller" filename="libgazebo_ros_planar_move_fix.so">
+      <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <!--plugin name="object_controller" filename="libgazebo_ros_planar_move_fix.so"-->
         <commandTopic>/cmd_vel</commandTopic>
         <odometryTopic>odom</odometryTopic>
         <odometryFrame>odom_sim</odometryFrame>

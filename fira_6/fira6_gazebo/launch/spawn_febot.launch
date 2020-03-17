@@ -6,8 +6,10 @@
   <arg name="roll" default="0"/>
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="3.14"/>
+  <arg name="odom" default="false"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find fira6_description)/urdf/fira6.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find fira6_description)/urdf/fira6.urdf.xacro' 
+                                  odom:=$(arg odom)"/>
 
   <!-- Spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"

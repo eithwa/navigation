@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <launch>
   <!-- Arguments -->
-  <arg name="model" value="fira6"/>
+  <arg name="model" default="fira6"/>
   <arg name="open_rviz" default="true"/>
   <arg name="move_forward_only" default="false"/>
-  <arg name="tf_map_2_odom" value="false"/>
+  <arg name="tf_map_2_odom" default="false"/>
 
   <!-- laser -->
   <!--node pkg="hls_lfcd_lds_driver" type="hlds_laser_publisher" name="hlds_laser_publisher" output="screen">

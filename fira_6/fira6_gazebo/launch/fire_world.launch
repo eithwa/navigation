@@ -4,7 +4,7 @@
   <arg name="world_name" default="$(find fira6_gazebo)/worlds/fire_map.world"/>
 
   <arg name="laser_enabled" default="true"/>
-
+  <arg name="odom" default="false"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
       <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
     <arg name="world_name" value="$(arg world_name)"/>
@@ -15,5 +15,7 @@
     <arg name="debug" value="false"/>
   </include>
 
-  <include file="$(find fira6_gazebo)/launch/spawn_febot.launch"/>
+  <include file="$(find fira6_gazebo)/launch/spawn_febot.launch">
+    <arg name="odom" value="$(arg odom)"/>
+  </include>
 </launch>

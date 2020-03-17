@@ -42,7 +42,7 @@ install(DIRECTORY meshes
 install(DIRECTORY urdf
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
-add_library(gazebo_ros_planar_move_fix src/gazebo_ros_planar_move.cpp)
-target_link_libraries(gazebo_ros_planar_move_fix ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread)
-add_dependencies(gazebo_ros_planar_move_fix ${PROJECT_NAME}_gencfg)
-add_dependencies(gazebo_ros_planar_move_fix  ${catkin_EXPORTED_TARGETS})
+#add_library(gazebo_ros_planar_move_fix src/gazebo_ros_planar_move.cpp)
+#target_link_libraries(gazebo_ros_planar_move_fix ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread)
+#add_dependencies(gazebo_ros_planar_move_fix ${PROJECT_NAME}_gencfg)
+#add_dependencies(gazebo_ros_planar_move_fix  ${catkin_EXPORTED_TARGETS})
