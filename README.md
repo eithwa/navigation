@@ -180,11 +180,11 @@
   # amcl+navigation
   $ roslaunch navigation amcl_navigation_by_laser_slam.launch
   ```
-  * 自行替換amcl_navigation_by_laser_slam.launch檔裡面的map檔案路徑
-    或者
-    ```bash
-    $ roslaunch navigation amcl_navigation_by_laser_slam.launch map:=${HOME}/navigation/src/navigation/maps/fire_field.yaml
-    ```
+  * 自行替換amcl_navigation_by_laser_slam.launch檔裡面的map檔案路徑  
+    - 或者在指令內加入arg
+      ```bash
+      $ roslaunch navigation amcl_navigation_by_laser_slam.launch map:=${HOME}/navigation/src/navigation/maps/fire_field.yaml
+      ```
 
 ## AMCL + odom + Navigation
   ```bash
