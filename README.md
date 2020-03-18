@@ -46,9 +46,14 @@
     $ sudo apt-get install ros-kinetic-move-base-msgs
     $ sudo apt-get install ros-kinetic-move-base
     $ sudo apt-get install ros-kinetic-dwa-local-planner
+    $ sudo apt-get install ros-kinetic-urdf-sim-tutorial 
     $ sudo apt-get install ros-kinetic-map-server
     $ sudo apt-get install ros-kinetic-amcl
     $ sudo apt-get install octovis (3d 地圖)
+    # check qt version
+    $ qmake --version
+    # if Qt version lower than 4
+    $ sudo apt install qt4-default
     ```
 ### Hokuyo URG-04LX
   
